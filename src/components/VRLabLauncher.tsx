@@ -131,7 +131,7 @@ export const VRLabLauncher = () => {
       <div className="flex-1 flex items-center justify-center px-6 pb-6">
         <div className="w-full max-w-6xl">
           {/* Apps Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mb-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6 mb-8">
             {vrApps.map((app, index) => (
               <div key={app.title} className="animate-fade-in" style={{ animationDelay: `${index * 50}ms` }}>
                 <AppCard

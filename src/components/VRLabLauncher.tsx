@@ -16,7 +16,8 @@ import {
   Rocket,
   Eye,
   Settings,
-  User
+  User,
+  ExternalLink
 } from "lucide-react";
 
 const vrApps = [
@@ -47,20 +48,6 @@ const vrApps = [
     icon: Gamepad2,
     iconColor: "text-white",
     gradient: "bg-gradient-to-br from-green-500 to-emerald-600"
-  },
-  {
-    title: "Learning Lab",
-    description: "Explore immersive education",
-    icon: GraduationCap,
-    iconColor: "text-white",
-    gradient: "bg-gradient-to-br from-blue-500 to-indigo-600"
-  },
-  {
-    title: "Science VR",
-    description: "Virtual experiments & research",
-    icon: Microscope,
-    iconColor: "text-white",
-    gradient: "bg-gradient-to-br from-teal-500 to-cyan-600"
   },
   {
     title: "Architecture",
@@ -122,6 +109,15 @@ export const VRLabLauncher = () => {
         </div>
         
         <div className="flex items-center gap-4">
+          <a 
+            href="https://clever.com/in/yccc" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="gradient-primary px-4 py-2 rounded-lg font-medium text-white text-sm hover:scale-105 transition-transform flex items-center gap-2"
+          >
+            <ExternalLink className="w-4 h-4" />
+            VR Lab Portal
+          </a>
           <button className="w-10 h-10 rounded-full glass-card flex items-center justify-center hover:bg-white/10 transition-colors">
             <User className="w-5 h-5 text-foreground" />
           </button>
@@ -135,7 +131,7 @@ export const VRLabLauncher = () => {
       <div className="flex-1 flex items-center justify-center px-6 pb-6">
         <div className="w-full max-w-6xl">
           {/* Apps Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6 mb-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mb-8">
             {vrApps.map((app, index) => (
               <div key={app.title} className="animate-fade-in" style={{ animationDelay: `${index * 50}ms` }}>
                 <AppCard

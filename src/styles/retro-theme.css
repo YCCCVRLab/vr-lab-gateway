@@ -212,7 +212,7 @@
   width: 40px;
 }
 
-/* Desktop Icons */
+/* Desktop Icons - Fixed overflow */
 .desktop-icon {
   align-items: center;
   color: white;
@@ -220,12 +220,15 @@
   display: flex;
   flex-direction: column;
   font-family: 'Tahoma', sans-serif;
-  font-size: 11px;
-  padding: 8px;
+  font-size: 10px;
+  padding: 6px 4px;
   text-align: center;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
   transition: background-color 0.1s ease;
-  width: 80px;
+  width: 72px;
+  min-height: 64px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .desktop-icon:hover {
@@ -297,119 +300,6 @@
   );
 }
 
-/* XP Scrollbars */
-.xp-scrollbar::-webkit-scrollbar {
-  width: 16px;
-}
-
-.xp-scrollbar::-webkit-scrollbar-track {
-  background: #f0f0f0;
-  border: 1px inset #d4d0c8;
-}
-
-.xp-scrollbar::-webkit-scrollbar-thumb {
-  background: linear-gradient(
-    to bottom,
-    #e6e6e6 0%,
-    #d9d9d9 50%,
-    #cccccc 100%
-  );
-  border: 1px outset #d4d0c8;
-}
-
-.xp-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(
-    to bottom,
-    #ebebeb 0%,
-    #dedede 50%,
-    #d1d1d1 100%
-  );
-}
-
-/* Animation Effects */
-.retro-fade-in {
-  animation: retroFadeIn 0.3s ease-out;
-}
-
-@keyframes retroFadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.retro-slide-up {
-  animation: retroSlideUp 0.2s ease-out;
-}
-
-@keyframes retroSlideUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Menu Styles */
-.xp-menu {
-  background: #f0f0f0;
-  border: 2px outset #d4d0c8;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-  font-family: 'Tahoma', sans-serif;
-  font-size: 11px;
-}
-
-.xp-menu-item {
-  padding: 4px 20px;
-  transition: background-color 0.1s ease;
-}
-
-.xp-menu-item:hover {
-  background: #316ac5;
-  color: white;
-}
-
-.vista-menu {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  font-family: 'Segoe UI', sans-serif;
-  font-size: 12px;
-}
-
-.vista-menu-item {
-  padding: 8px 16px;
-  transition: background-color 0.1s ease;
-}
-
-.vista-menu-item:hover {
-  background: rgba(0, 120, 215, 0.8);
-  color: white;
-}
-
-/* Modal Improvements */
-.modal-content {
-  max-height: calc(100vh - 100px);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-.modal-body {
-  flex: 1;
-  overflow-y: auto;
-  min-height: 0;
-}
-
 /* Window Close Button */
 .window-close-button {
   width: 20px;
@@ -442,4 +332,259 @@
 .vista-close-button:hover {
   background: #ff5252;
   color: white;
+}
+
+/* Retro VR Lab Launcher Styles */
+.retro-launcher {
+  font-family: 'Tahoma', sans-serif;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.retro-launcher.vista {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Header Styles */
+.launcher-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.xp-header {
+  background: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
+  border-bottom: 1px solid #999;
+}
+
+.vista-header {
+  background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.app-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.xp-logo {
+  background: linear-gradient(to bottom, #4a90e2, #2e5cb8);
+}
+
+.vista-logo {
+  background: linear-gradient(to bottom, #667eea, #764ba2);
+}
+
+.header-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.xp-title {
+  color: #2d3748;
+}
+
+.vista-title {
+  color: #333;
+}
+
+.header-subtitle {
+  font-size: 12px;
+  margin: 0;
+}
+
+.xp-subtitle {
+  color: #666;
+}
+
+.vista-subtitle {
+  color: #666;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.portal-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.icon-button {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+/* Content Styles */
+.launcher-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.apps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+/* App Card Styles */
+.retro-app-card {
+  padding: 16px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  transition: all 0.2s ease;
+}
+
+.xp-card {
+  background: #f8f8f8;
+  border: 1px outset #d4d0c8;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.xp-card:hover {
+  background: #fff;
+  border: 1px inset #d4d0c8;
+}
+
+.vista-card {
+  background: rgba(255,255,255,0.8);
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.vista-card:hover {
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.app-icon-container {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.app-title {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.xp-text {
+  color: #2d3748;
+}
+
+.vista-text {
+  color: #333;
+}
+
+.app-description {
+  font-size: 11px;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.xp-text-muted {
+  color: #666;
+}
+
+.vista-text-muted {
+  color: #666;
+}
+
+/* Footer Styles */
+.launcher-footer {
+  padding: 0 20px 20px;
+}
+
+.cta-card {
+  padding: 20px;
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.cta-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 0 8px 0;
+}
+
+.cta-description {
+  font-size: 12px;
+  margin: 0 0 16px 0;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.primary-button, .secondary-button {
+  padding: 8px 16px;
+  font-size: 11px;
+  font-weight: bold;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+.xp-button-primary {
+  background: linear-gradient(to bottom, #73b342, #5a9a2d);
+  border: 1px solid #4a7c23;
+  color: white;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+}
+
+.xp-button-primary:hover {
+  background: linear-gradient(to bottom, #7bc048, #62a533);
+}
+
+.vista-button-primary {
+  background: linear-gradient(to bottom, #667eea, #764ba2);
+  border: 1px solid #5a6fd8;
+  color: white;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+}
+
+.vista-button-primary:hover {
+  background: linear-gradient(to bottom, #7289ed, #8357a8);
 }

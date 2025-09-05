@@ -95,8 +95,7 @@ export const RetroDesktop: React.FC<RetroDesktopProps> = ({ theme }) => {
         >
           {theme === 'xp' ? (
             <span className="flex items-center gap-1">
-              <span className="text-sm">⊞</span>
-              <span>start</span>
+              <span className="text-sm font-bold">start</span>
             </span>
           ) : (
             <div className="vista-orb-content">
@@ -196,7 +195,7 @@ export const RetroDesktop: React.FC<RetroDesktopProps> = ({ theme }) => {
         <div className="absolute inset-0 bg-black/50 flex items-center justify-center z-50 p-6">
           <div className={`relative ${
             theme === 'xp' ? 'xp-window' : 'vista-window vista-glass'
-          } w-full max-w-4xl h-full max-h-[85vh] flex flex-col shadow-2xl`}>
+          } w-full max-w-6xl h-full max-h-[90vh] flex flex-col shadow-2xl`}>
             <div className={theme === 'xp' ? 'xp-window-header' : 'vista-window-header'}>
               <div className="flex justify-between items-center">
                 <div className="flex items-center gap-2">
@@ -213,10 +212,12 @@ export const RetroDesktop: React.FC<RetroDesktopProps> = ({ theme }) => {
                 </button>
               </div>
             </div>
-            <div className={`flex-1 overflow-hidden flex items-center justify-center p-4 ${
+            <div className={`flex-1 overflow-hidden flex items-center justify-center p-6 ${
               theme === 'xp' ? 'bg-gray-50' : 'bg-white/95'
             }`}>
-              <RetroTV theme={theme} />
+              <div className="w-full h-full flex items-center justify-center">
+                <RetroTV theme={theme} />
+              </div>
             </div>
           </div>
         </div>

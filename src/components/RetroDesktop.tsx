@@ -11,8 +11,8 @@ interface DesktopIconProps {
 
 const DesktopIcon: React.FC<DesktopIconProps> = ({ icon, label, onClick }) => (
   <div className="desktop-icon" onClick={onClick}>
-    <div className="text-4xl mb-1">{icon}</div>
-    <div className="text-xs">{label}</div>
+    <div className="text-3xl mb-1">{icon}</div>
+    <div className="text-xs leading-tight">{label}</div>
   </div>
 );
 
@@ -36,7 +36,7 @@ export const RetroDesktop: React.FC<RetroDesktopProps> = ({ theme }) => {
     { icon: '💻', label: 'My Computer', onClick: () => {} },
     { icon: '🗂️', label: 'My Documents', onClick: () => {} },
     { icon: '🌐', label: 'Internet Explorer', onClick: () => {} },
-    { icon: '🎵', label: 'Windows Media Player', onClick: () => {} },
+    { icon: '🎵', label: 'Media Player', onClick: () => {} },
     { icon: '📧', label: 'Outlook Express', onClick: () => {} },
     { icon: '🗑️', label: 'Recycle Bin', onClick: () => {} },
   ];
@@ -68,11 +68,13 @@ export const RetroDesktop: React.FC<RetroDesktopProps> = ({ theme }) => {
         )}
       </div>
 
-      {/* Desktop Icons */}
-      <div className="absolute top-4 left-4 grid grid-cols-1 gap-2">
-        {desktopIcons.map((icon, index) => (
-          <DesktopIcon key={index} {...icon} />
-        ))}
+      {/* Desktop Icons - Fixed positioning and overflow */}
+      <div className="absolute top-4 left-4 bottom-16 w-20 overflow-y-auto custom-scrollbar">
+        <div className="grid grid-cols-1 gap-1">
+          {desktopIcons.map((icon, index) => (
+            <DesktopIcon key={index} {...icon} />
+          ))}
+        </div>
       </div>
 
       {/* Taskbar */}
@@ -151,17 +153,19 @@ export const RetroDesktop: React.FC<RetroDesktopProps> = ({ theme }) => {
                 <span>🥽 YCCC VR Lab Gateway</span>
                 <button 
                   onClick={() => setShowLauncher(false)}
-                  className={`w-6 h-6 flex items-center justify-center ${
-                    theme === 'xp' ? 'bg-red-500 hover:bg-red-600 text-white' : 'hover:bg-red-500 hover:text-white'
-                  } transition-colors rounded-sm`}
+                  className={`window-close-button ${
+                    theme === 'xp' ? 'xp-close-button' : 'vista-close-button'
+                  }`}
                 >
                   ×
                 </button>
               </div>
             </div>
-            <div className="flex-1 overflow-hidden">
+            <div className={`flex-1 overflow-hidden ${theme === 'xp' ? 'bg-gray-100' : 'bg-white/90'}`}>
               <div className="h-full overflow-y-auto custom-scrollbar">
-                <VRLabLauncher />
+                <div className={theme === 'xp' ? 'retro-content-xp' : 'retro-content-vista'}>
+                  <VRLabLauncher />
+                </div>
               </div>
             </div>
           </div>
@@ -179,15 +183,17 @@ export const RetroDesktop: React.FC<RetroDesktopProps> = ({ theme }) => {
                 <span>📺 YCCC TV - Retro Broadcasting</span>
                 <button 
                   onClick={() => setShowTV(false)}
-                  className={`w-6 h-6 flex items-center justify-center ${
-                    theme === 'xp' ? 'bg-red-500 hover:bg-red-600 text-white' : 'hover:bg-red-500 hover:text-white'
-                  } transition-colors rounded-sm`}
+                  className={`window-close-button ${
+                    theme === 'xp' ? 'xp-close-button' : 'vista-close-button'
+                  }`}
                 >
                   ×
                 </button>
               </div>
             </div>
-            <div className="flex-1 overflow-hidden flex items-center justify-center p-4">
+            <div className={`flex-1 overflow-hidden flex items-center justify-center p-4 ${
+              theme === 'xp' ? 'bg-gray-100' : 'bg-white/90'
+            }`}>
               <RetroTV theme={theme} />
             </div>
           </div>

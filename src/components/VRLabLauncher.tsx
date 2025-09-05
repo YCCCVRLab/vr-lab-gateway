@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Box, 
   Palette, 
@@ -15,17 +15,21 @@ import {
   User,
   Settings
 } from "lucide-react";
+import { ArtStudio } from './ArtStudio';
 
 interface VRApp {
+  id: string;
   title: string;
   description: string;
   icon: React.ComponentType<any>;
   iconColor: string;
   bgColor: string;
+  hasDetail?: boolean;
 }
 
 const vrApps: VRApp[] = [
   {
+    id: "3d-modeling",
     title: "3D Modeling",
     description: "Create 3D models with hand gestures",
     icon: Box,
@@ -33,13 +37,16 @@ const vrApps: VRApp[] = [
     bgColor: "bg-blue-500"
   },
   {
+    id: "art-studio",
     title: "Art Studio", 
     description: "Paint in virtual 3D space",
     icon: Palette,
     iconColor: "text-white",
-    bgColor: "bg-pink-500"
+    bgColor: "bg-pink-500",
+    hasDetail: true
   },
   {
+    id: "vr-camera",
     title: "VR Camera",
     description: "Capture 360° photos and videos", 
     icon: Camera,
@@ -47,6 +54,7 @@ const vrApps: VRApp[] = [
     bgColor: "bg-indigo-500"
   },
   {
+    id: "game-studio",
     title: "Game Studio",
     description: "Build VR games visually",
     icon: Gamepad2,
@@ -54,6 +62,7 @@ const vrApps: VRApp[] = [
     bgColor: "bg-green-500"
   },
   {
+    id: "architecture",
     title: "Architecture",
     description: "Design buildings in VR",
     icon: Building,
@@ -61,6 +70,7 @@ const vrApps: VRApp[] = [
     bgColor: "bg-orange-500"
   },
   {
+    id: "music-studio",
     title: "Music Studio",
     description: "Compose with spatial audio",
     icon: Music,
@@ -68,6 +78,7 @@ const vrApps: VRApp[] = [
     bgColor: "bg-purple-500"
   },
   {
+    id: "neural-lab",
     title: "Neural Lab",
     description: "Brain training exercises", 
     icon: Brain,
@@ -75,6 +86,7 @@ const vrApps: VRApp[] = [
     bgColor: "bg-rose-500"
   },
   {
+    id: "code-space",
     title: "Code Space",
     description: "Program in 3D environments",
     icon: Code,
@@ -82,6 +94,7 @@ const vrApps: VRApp[] = [
     bgColor: "bg-slate-500"
   },
   {
+    id: "audio-lab",
     title: "Audio Lab", 
     description: "3D sound design studio",
     icon: Headphones,
@@ -89,6 +102,7 @@ const vrApps: VRApp[] = [
     bgColor: "bg-amber-500"
   },
   {
+    id: "magic-lab",
     title: "Magic Lab",
     description: "Physics through magic",
     icon: Sparkles,
@@ -100,13 +114,17 @@ const vrApps: VRApp[] = [
 interface RetroAppCardProps {
   app: VRApp;
   theme: 'xp' | 'vista';
+  onClick?: () => void;
 }
 
-const RetroAppCard: React.FC<RetroAppCardProps> = ({ app, theme }) => {
+const RetroAppCard: React.FC<RetroAppCardProps> = ({ app, theme, onClick }) => {
   const IconComponent = app.icon;
   
   return (
-    <div className={`retro-app-card ${theme === 'xp' ? 'xp-card' : 'vista-card'} cursor-pointer`}>
+    <div 
+      className={`retro-app-card ${theme === 'xp' ? 'xp-card' : 'vista-card'} ${onClick ? 'cursor-pointer' : ''}`}
+      onClick={onClick}
+    >
       <div className={`app-icon-container ${app.bgColor} rounded-lg`}>
         <IconComponent className={`w-8 h-8 ${app.iconColor}`} />
       </div>
@@ -118,6 +136,11 @@ const RetroAppCard: React.FC<RetroAppCardProps> = ({ app, theme }) => {
           {app.description}
         </p>
       </div>
+      {app.hasDetail && (
+        <div className="app-indicator">
+          <ExternalLink className={`w-4 h-4 ${theme === 'xp' ? 'text-blue-600' : 'text-indigo-600'}`} />
+        </div>
+      )}
     </div>
   );
 };
@@ -125,6 +148,22 @@ const RetroAppCard: React.FC<RetroAppCardProps> = ({ app, theme }) => {
 export const VRLabLauncher: React.FC = () => {
   // Detect theme from parent context or default to vista
   const theme = document.querySelector('.xp-window') ? 'xp' : 'vista';
+  const [selectedApp, setSelectedApp] = useState<string | null>(null);
+  
+  const handleAppClick = (app: VRApp) => {
+    if (app.hasDetail) {
+      setSelectedApp(app.id);
+    }
+  };
+
+  const handleBackToLauncher = () => {
+    setSelectedApp(null);
+  };
+
+  // Show Art Studio detail view
+  if (selectedApp === 'art-studio') {
+    return <ArtStudio theme={theme} onBack={handleBackToLauncher} />;
+  }
   
   return (
     <div className={`retro-launcher ${theme}`}>
@@ -171,9 +210,10 @@ export const VRLabLauncher: React.FC = () => {
         <div className="apps-grid">
           {vrApps.map((app, index) => (
             <RetroAppCard 
-              key={app.title} 
+              key={app.id} 
               app={app} 
               theme={theme}
+              onClick={app.hasDetail ? () => handleAppClick(app) : undefined}
             />
           ))}
         </div>

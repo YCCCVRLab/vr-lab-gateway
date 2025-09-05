@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { VRLabLauncher } from './VRLabLauncher';
+import { RetroTV } from './RetroTV';
 import '../styles/retro-theme.css';
 
 interface DesktopIconProps {
@@ -21,6 +22,7 @@ interface RetroDesktopProps {
 
 export const RetroDesktop: React.FC<RetroDesktopProps> = ({ theme }) => {
   const [showLauncher, setShowLauncher] = useState(false);
+  const [showTV, setShowTV] = useState(false);
   const [time, setTime] = useState(new Date());
 
   React.useEffect(() => {
@@ -30,6 +32,7 @@ export const RetroDesktop: React.FC<RetroDesktopProps> = ({ theme }) => {
 
   const desktopIcons = [
     { icon: '🥽', label: 'VR Lab', onClick: () => setShowLauncher(true) },
+    { icon: '📺', label: 'YCCC TV', onClick: () => setShowTV(true) },
     { icon: '💻', label: 'My Computer', onClick: () => {} },
     { icon: '🗂️', label: 'My Documents', onClick: () => {} },
     { icon: '🌐', label: 'Internet Explorer', onClick: () => {} },
@@ -88,6 +91,13 @@ export const RetroDesktop: React.FC<RetroDesktopProps> = ({ theme }) => {
 
         {/* Quick Launch */}
         <div className="flex space-x-1 mr-4">
+          <button 
+            className={`p-1 ${theme === 'xp' ? 'xp-button' : 'vista-button'}`}
+            onClick={() => setShowTV(true)}
+            title="YCCC TV"
+          >
+            📺
+          </button>
           <button className={`p-1 ${
             theme === 'xp' ? 'xp-button' : 'vista-button'
           }`}>🌐</button>
@@ -106,6 +116,13 @@ export const RetroDesktop: React.FC<RetroDesktopProps> = ({ theme }) => {
           }`}>
             🥽 VR Lab Gateway
           </button>
+          {showTV && (
+            <button className={`px-3 py-1 ${
+              theme === 'xp' ? 'xp-button' : 'vista-button'
+            }`}>
+              📺 YCCC TV
+            </button>
+          )}
         </div>
 
         {/* System Tray */}
@@ -144,6 +161,32 @@ export const RetroDesktop: React.FC<RetroDesktopProps> = ({ theme }) => {
             </div>
             <div className="p-4 h-full overflow-auto">
               <VRLabLauncher />
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Retro TV Modal */}
+      {showTV && (
+        <div className="absolute inset-0 bg-black/80 flex items-center justify-center z-50">
+          <div className={`relative ${
+            theme === 'xp' ? 'xp-window' : 'vista-window vista-glass'
+          } w-full max-w-6xl h-5/6 m-4`}>
+            <div className={theme === 'xp' ? 'xp-window-header' : 'vista-window-header'}>
+              <div className="flex justify-between items-center">
+                <span>📺 YCCC TV - Retro Broadcasting</span>
+                <button 
+                  onClick={() => setShowTV(false)}
+                  className={`w-6 h-6 flex items-center justify-center ${
+                    theme === 'xp' ? 'bg-red-500 hover:bg-red-600 text-white' : 'hover:bg-red-500 hover:text-white'
+                  } transition-colors`}
+                >
+                  ×
+                </button>
+              </div>
+            </div>
+            <div className="p-4 h-full overflow-auto flex items-center justify-center">
+              <RetroTV theme={theme} />
             </div>
           </div>
         </div>

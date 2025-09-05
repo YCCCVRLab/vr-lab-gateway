@@ -1,73 +1,100 @@
-# Welcome to your Lovable project
+# 🥽 YCCC VR Lab Gateway
 
-## Project info
+**A nostalgic Windows Vista/XP themed portal for the York County Community College VR Lab**
 
-**URL**: https://lovable.dev/projects/9279a73f-1999-4d81-bf5e-ea48c6fbcab1
+## 🎨 Retro Theme Features
 
-## How can I edit this code?
+This VR Lab Gateway features authentic Windows Vista and XP themes with:
 
-There are several ways of editing your application.
+### Windows XP Theme
+- Classic "Bliss" inspired blue-green gradient background
+- Authentic XP taskbar with blue gradient styling
+- XP-style buttons with orange gradient effects
+- Classic "start" button styling
+- Retro desktop icons with proper spacing
+- Tahoma font family for that authentic feel
 
-**Use Lovable**
+### Windows Vista Theme
+- Elegant dark gradient backgrounds with aurora effects
+- Glass Aero effects with backdrop blur
+- Vista-style translucent taskbar
+- Modern circular start button (⊞)
+- Segoe UI font family
+- Sophisticated glass window styling
 
+### Interactive Elements
+- **Theme Toggle**: Switch between XP and Vista themes in real-time
+- **Desktop Icons**: Click to launch VR Lab applications
+- **Taskbar**: Functional start button, quick launch, and system tray
+- **Live Clock**: Real-time system clock in the taskbar
+- **Modal Windows**: Authentic window chrome with proper headers
+
+## 🚀 Getting Started
+
+### Use Lovable (Recommended)
 Simply visit the [Lovable Project](https://lovable.dev/projects/9279a73f-1999-4d81-bf5e-ea48c6fbcab1) and start prompting.
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
+### Local Development
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Navigate to project directory
+cd vr-lab-gateway
 
-# Step 3: Install the necessary dependencies.
+# Install dependencies
 npm i
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## 🛠️ Tech Stack
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- **Vite** - Fast build tool and dev server
+- **TypeScript** - Type-safe JavaScript
+- **React** - UI framework
+- **shadcn-ui** - Modern component library
+- **Tailwind CSS** - Utility-first CSS framework
+- **Custom Retro CSS** - Authentic Windows styling
 
-**Use GitHub Codespaces**
+## 📁 Project Structure
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```
+src/
+├── components/
+│   ├── RetroDesktop.tsx     # Main desktop component
+│   ├── ThemeToggle.tsx      # XP/Vista theme switcher
+│   ├── VRLabLauncher.tsx    # VR Lab application launcher
+│   └── ui/                  # shadcn-ui components
+├── styles/
+│   └── retro-theme.css      # Windows XP/Vista styling
+├── pages/
+│   └── Index.tsx            # Main page
+└── assets/                  # Images and resources
+```
 
-## What technologies are used for this project?
+## 🎯 Features
 
-This project is built with:
+- **Authentic Retro Styling**: Pixel-perfect recreation of Windows XP and Vista aesthetics
+- **Theme Switching**: Toggle between XP and Vista themes instantly
+- **Responsive Design**: Works on desktop and mobile devices
+- **VR Lab Integration**: Portal for accessing VR Lab resources
+- **Interactive Desktop**: Clickable icons and functional taskbar
+- **Real-time Elements**: Live clock and interactive components
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 🎨 Customization
 
-## How can I deploy this project?
+The retro themes are fully customizable through CSS variables and component props. Modify colors, gradients, and effects in `src/styles/retro-theme.css`.
 
-Simply open [Lovable](https://lovable.dev/projects/9279a73f-1999-4d81-bf5e-ea48c6fbcab1) and click on Share -> Publish.
+## 📱 Deployment
 
-## Can I connect a custom domain to my Lovable project?
+Deploy instantly via [Lovable](https://lovable.dev/projects/9279a73f-1999-4d81-bf5e-ea48c6fbcab1) by clicking Share → Publish.
 
-Yes, you can!
+## 🌐 Custom Domain
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Connect your own domain through Project > Settings > Domains in Lovable.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+---
+
+**Built with ❤️ for the YCCC VR Lab community**

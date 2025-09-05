@@ -1,0 +1,280 @@
+/* Windows Vista/XP Retro Theme Styles */
+
+/* Vista Glass Effect */
+.vista-glass {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* XP Button Styles */
+.xp-button {
+  background: linear-gradient(
+    to bottom,
+    #ffecd2 0%,
+    #fcb045 50%,
+    #fd9827 51%,
+    #ffb347 100%
+  );
+  border: 1px solid #d69e2e;
+  border-radius: 3px;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 1px 3px rgba(0, 0, 0, 0.3);
+  color: #2d3748;
+  font-family: 'Tahoma', 'MS Sans Serif', sans-serif;
+  font-size: 11px;
+  font-weight: normal;
+  padding: 2px 8px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+  transition: all 0.1s ease;
+}
+
+.xp-button:hover {
+  background: linear-gradient(
+    to bottom,
+    #fff2db 0%,
+    #ffc658 50%,
+    #ffb347 51%,
+    #ffc658 100%
+  );
+}
+
+.xp-button:active {
+  background: linear-gradient(
+    to bottom,
+    #fd9827 0%,
+    #fcb045 50%,
+    #ffecd2 51%,
+    #fff2db 100%
+  );
+  box-shadow: 
+    inset 0 1px 3px rgba(0, 0, 0, 0.3),
+    0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* Vista Button Styles */
+.vista-button {
+  background: linear-gradient(
+    to bottom,
+    #f0f0f0 0%,
+    #e6e6e6 50%,
+    #d9d9d9 51%,
+    #cccccc 100%
+  );
+  border: 1px solid #999;
+  border-radius: 2px;
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  color: #333;
+  font-family: 'Segoe UI', 'Tahoma', sans-serif;
+  font-size: 12px;
+  padding: 4px 12px;
+  transition: all 0.1s ease;
+}
+
+.vista-button:hover {
+  background: linear-gradient(
+    to bottom,
+    #f5f5f5 0%,
+    #ebebeb 50%,
+    #dedede 51%,
+    #d1d1d1 100%
+  );
+}
+
+/* XP Taskbar Style */
+.xp-taskbar {
+  background: linear-gradient(
+    to bottom,
+    #3d7bdb 0%,
+    #2e5cb8 50%,
+    #1e4088 51%,
+    #1a3c7c 100%
+  );
+  border-top: 1px solid #5a8de8;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 -1px 3px rgba(0, 0, 0, 0.3);
+  height: 40px;
+}
+
+/* Vista Taskbar Style */
+.vista-taskbar {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+  height: 48px;
+}
+
+/* Window Chrome Styles */
+.xp-window {
+  background: #ece9d8;
+  border: 2px outset #d4d0c8;
+  border-radius: 0;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.xp-window-header {
+  background: linear-gradient(
+    to right,
+    #0a5ea8 0%,
+    #1e90ff 50%,
+    #0a5ea8 100%
+  );
+  color: white;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 4px 8px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.vista-window {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  box-shadow: 
+    0 0 20px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+}
+
+.vista-window-header {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0.4) 100%
+  );
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px 8px 0 0;
+  color: #333;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 12px;
+}
+
+/* Start Button Styles */
+.xp-start-button {
+  background: linear-gradient(
+    to bottom,
+    #73b342 0%,
+    #5a9a2d 50%,
+    #4a7c23 51%,
+    #3e6b1f 100%
+  );
+  border: 1px solid #2d5016;
+  border-radius: 8px;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 2px 5px rgba(0, 0, 0, 0.3);
+  color: white;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 4px 12px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.vista-start-button {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.7) 50%,
+    rgba(255, 255, 255, 0.5) 100%
+  );
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 20px rgba(255, 255, 255, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  color: #333;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  height: 40px;
+  width: 40px;
+}
+
+/* Desktop Icons */
+.desktop-icon {
+  align-items: center;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 11px;
+  padding: 8px;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  transition: background-color 0.1s ease;
+  width: 80px;
+}
+
+.desktop-icon:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.desktop-icon:active {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Retro Fonts */
+@import url('https://fonts.googleapis.com/css2?family=MS+Sans+Serif&display=swap');
+
+.retro-font {
+  font-family: 'Tahoma', 'MS Sans Serif', monospace;
+}
+
+.vista-font {
+  font-family: 'Segoe UI', 'Tahoma', sans-serif;
+}
+
+/* Animation Effects */
+.retro-fade-in {
+  animation: retroFadeIn 0.3s ease-out;
+}
+
+@keyframes retroFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.retro-slide-up {
+  animation: retroSlideUp 0.2s ease-out;
+}
+
+@keyframes retroSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

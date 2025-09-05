@@ -536,6 +536,7 @@
   text-align: center;
   gap: 12px;
   transition: all 0.2s ease;
+  position: relative;
 }
 
 .xp-card {
@@ -598,6 +599,13 @@
   color: #666;
 }
 
+.app-indicator {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  opacity: 0.6;
+}
+
 /* Footer Styles */
 .launcher-footer {
   padding: 0 20px 20px;
@@ -656,4 +664,209 @@
 
 .vista-button-primary:hover {
   background: linear-gradient(to bottom, #7289ed, #8357a8);
+}
+
+/* Art Studio Specific Styles */
+.art-studio {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.art-studio.xp {
+  font-family: 'Tahoma', sans-serif;
+}
+
+.studio-header {
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.art-studio-detail {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.detail-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+}
+
+.detail-content {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.tool-overview {
+  background: rgba(255,255,255,0.5);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.tool-icon-large {
+  flex-shrink: 0;
+}
+
+.category-badge {
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 12px;
+}
+
+.price-badge {
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 12px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.visit-button, .demo-button {
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.section-title {
+  margin-bottom: 16px;
+}
+
+.features-grid {
+  gap: 12px;
+}
+
+.feature-item {
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.feature-icon {
+  flex-shrink: 0;
+}
+
+.tools-grid {
+  gap: 20px;
+}
+
+.tool-card {
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
+
+.card-header {
+  margin-bottom: 16px;
+}
+
+.tool-icon {
+  flex-shrink: 0;
+}
+
+.tool-name {
+  margin-bottom: 8px;
+}
+
+.tool-description {
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.rating {
+  margin-bottom: 16px;
+}
+
+.card-footer {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.category-filter {
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.category-btn {
+  font-size: 12px;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+}
+
+.tutorials-grid {
+  gap: 16px;
+}
+
+.tutorial-card {
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.tutorial-icon {
+  flex-shrink: 0;
+}
+
+.tutorial-title {
+  margin-bottom: 4px;
+}
+
+.tutorial-description {
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.tutorial-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Responsive Design for Art Studio */
+@media (max-width: 768px) {
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+  
+  .tool-overview {
+    padding: 16px;
+  }
+  
+  .tool-overview .flex {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
 }

@@ -1,20 +1,14 @@
-import vrLabBg from "@/assets/vr-lab-bg.jpg";
-import { VRLabLauncher } from "@/components/VRLabLauncher";
+import React, { useState } from 'react';
+import { RetroDesktop } from '@/components/RetroDesktop';
+import { ThemeToggle } from '@/components/ThemeToggle';
 
 const Index = () => {
+  const [theme, setTheme] = useState<'xp' | 'vista'>('vista');
+
   return (
     <div className="h-screen overflow-hidden relative">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 -z-20 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${vrLabBg})` }}
-      />
-      
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 -z-10 bg-background/70 backdrop-blur-sm" />
-      
-      {/* Launcher */}
-      <VRLabLauncher />
+      <RetroDesktop theme={theme} />
+      <ThemeToggle theme={theme} onThemeChange={setTheme} />
     </div>
   );
 };

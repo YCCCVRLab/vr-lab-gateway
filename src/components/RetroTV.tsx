@@ -103,29 +103,29 @@ export const RetroTV: React.FC<RetroTVProps> = ({ theme = 'vista' }) => {
 
   return (
     <div className={`retro-tv-container ${theme}`}>
-      <div className=\"retro-tv\">
+      <div className="retro-tv">
         {/* TV Frame */}
-        <div className=\"tv-frame\">
-          <div className=\"tv-screen-bezel\">
-            <div className=\"tv-screen\">
+        <div className="tv-frame">
+          <div className="tv-screen-bezel">
+            <div className="tv-screen">
               {!tvOn ? (
-                <div className=\"tv-off\">
-                  <div className=\"power-dot\"></div>
+                <div className="tv-off">
+                  <div className="power-dot"></div>
                 </div>
               ) : showStatic ? (
-                <div className=\"tv-static\">
-                  <div ref={staticRef} className=\"static-canvas\"></div>
-                  <div className=\"static-overlay\"></div>
+                <div className="tv-static">
+                  <div ref={staticRef} className="static-canvas"></div>
+                  <div className="static-overlay"></div>
                 </div>
               ) : currentVideo >= 0 ? (
-                <div className=\"tv-video\">
+                <div className="tv-video">
                   <iframe
-                    width=\"100%\"
-                    height=\"100%\"
+                    width="100%"
+                    height="100%"
                     src={`https://www.youtube.com/embed/${videos[currentVideo].id}?autoplay=1&rel=0&modestbranding=1`}
                     title={videos[currentVideo].title}
-                    frameBorder=\"0\"
-                    allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                     onLoad={() => {
                       // Auto-advance after video (approximate timing)
@@ -138,33 +138,33 @@ export const RetroTV: React.FC<RetroTVProps> = ({ theme = 'vista' }) => {
           </div>
           
           {/* TV Brand Label */}
-          <div className=\"tv-brand\">YCCC-TV</div>
+          <div className="tv-brand">YCCC-TV</div>
           
           {/* Control Panel */}
-          <div className=\"tv-controls\">
-            <div className=\"control-row\">
+          <div className="tv-controls">
+            <div className="control-row">
               <button 
                 className={`power-button ${tvOn ? 'on' : 'off'}`}
                 onClick={tvOn ? handlePowerOff : handlePowerOn}
               >
                 ⏻
               </button>
-              <div className=\"volume-knob\"></div>
+              <div className="volume-knob"></div>
             </div>
             
-            <div className=\"control-row\">
+            <div className="control-row">
               <button 
-                className=\"channel-button\"
+                className="channel-button"
                 onClick={() => handleChannelChange('prev')}
                 disabled={!tvOn}
               >
                 CH-
               </button>
-              <div className=\"channel-display\">
+              <div className="channel-display">
                 {tvOn ? (currentVideo >= 0 ? (currentVideo + 1).toString().padStart(2, '0') : '--') : ''}
               </div>
               <button 
-                className=\"channel-button\"
+                className="channel-button"
                 onClick={() => handleChannelChange('next')}
                 disabled={!tvOn}
               >
@@ -175,24 +175,24 @@ export const RetroTV: React.FC<RetroTVProps> = ({ theme = 'vista' }) => {
         </div>
         
         {/* TV Stand */}
-        <div className=\"tv-stand\"></div>
+        <div className="tv-stand"></div>
       </div>
       
       {/* Remote Control */}
-      <div className=\"remote-control\">
-        <div className=\"remote-header\">YCCC Remote</div>
-        <div className=\"remote-buttons\">
+      <div className="remote-control">
+        <div className="remote-header">YCCC Remote</div>
+        <div className="remote-buttons">
           <button 
-            className=\"remote-power\"
+            className="remote-power"
             onClick={tvOn ? handlePowerOff : handlePowerOn}
           >
             POWER
           </button>
-          <div className=\"remote-numbers\">
+          <div className="remote-numbers">
             {[1, 2, 3].map((num) => (
               <button 
                 key={num}
-                className=\"remote-number\"
+                className="remote-number"
                 onClick={() => {
                   if (tvOn) {
                     setShowStatic(true);
@@ -208,16 +208,16 @@ export const RetroTV: React.FC<RetroTVProps> = ({ theme = 'vista' }) => {
               </button>
             ))}
           </div>
-          <div className=\"remote-arrows\">
+          <div className="remote-arrows">
             <button 
-              className=\"remote-arrow\"
+              className="remote-arrow"
               onClick={() => handleChannelChange('prev')}
               disabled={!tvOn}
             >
               ↑
             </button>
             <button 
-              className=\"remote-arrow\"
+              className="remote-arrow"
               onClick={() => handleChannelChange('next')}
               disabled={!tvOn}
             >

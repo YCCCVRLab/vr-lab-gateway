@@ -427,8 +427,53 @@
   background: linear-gradient(145deg, #8a8a8a, #4a4a4a);
 }
 
+.retro-tv-container.xp .tv-stand {
+  background: linear-gradient(145deg, #d4d0c8, #aca899);
+  box-shadow: 
+    0 5px 15px rgba(0, 0, 0, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
 .retro-tv-container.xp .remote-control {
   background: linear-gradient(145deg, #d4d0c8, #aca899);
+}
+
+.retro-tv-container.xp .power-button {
+  background: linear-gradient(145deg, #e6e6e6, #c0c0c0);
+  border: 2px solid #999;
+  color: #333;
+}
+
+.retro-tv-container.xp .power-button.on {
+  color: #0a0;
+  box-shadow: 
+    0 2px 5px rgba(0, 0, 0, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.3),
+    0 0 10px rgba(0, 170, 0, 0.4);
+}
+
+.retro-tv-container.xp .power-button:hover {
+  background: linear-gradient(145deg, #f0f0f0, #d0d0d0);
+}
+
+.retro-tv-container.xp .volume-knob {
+  background: linear-gradient(145deg, #e6e6e6, #c0c0c0);
+  border: 2px solid #999;
+}
+
+.retro-tv-container.xp .volume-knob::after {
+  background: #333;
+}
+
+.retro-tv-container.xp .channel-button {
+  background: linear-gradient(145deg, #e6e6e6, #c0c0c0);
+  border: 1px solid #999;
+  color: #333;
+}
+
+.retro-tv-container.xp .channel-button:hover:not(:disabled) {
+  background: linear-gradient(145deg, #f0f0f0, #d0d0d0);
+  color: #111;
 }
 
 .retro-tv-container.vista .tv-frame {

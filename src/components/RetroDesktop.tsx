@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { VRLabLauncher } from './VRLabLauncher';
 import { RetroTV } from './RetroTV';
 import '../styles/retro-theme.css';
@@ -21,6 +22,7 @@ interface RetroDesktopProps {
 }
 
 export const RetroDesktop: React.FC<RetroDesktopProps> = ({ theme }) => {
+  const navigate = useNavigate();
   const [showLauncher, setShowLauncher] = useState(false);
   const [showTV, setShowTV] = useState(false);
   const [time, setTime] = useState(new Date());
@@ -32,6 +34,7 @@ export const RetroDesktop: React.FC<RetroDesktopProps> = ({ theme }) => {
 
   const desktopIcons = [
     { icon: '🥽', label: 'VR Lab', onClick: () => setShowLauncher(true) },
+    { icon: '🚀', label: 'VR Projects', onClick: () => navigate('/projects') },
     { icon: '📺', label: 'YCCC TV', onClick: () => setShowTV(true) },
     { icon: '💻', label: 'My Computer', onClick: () => {} },
     { icon: '🗂️', label: 'My Documents', onClick: () => {} },
@@ -106,6 +109,13 @@ export const RetroDesktop: React.FC<RetroDesktopProps> = ({ theme }) => {
 
         {/* Quick Launch */}
         <div className="flex space-x-1 mr-4">
+          <button 
+            className={`p-1 ${theme === 'xp' ? 'xp-button' : 'vista-button'}`}
+            onClick={() => navigate('/projects')}
+            title="VR Projects"
+          >
+            🚀
+          </button>
           <button 
             className={`p-1 ${theme === 'xp' ? 'xp-button' : 'vista-button'}`}
             onClick={() => setShowTV(true)}

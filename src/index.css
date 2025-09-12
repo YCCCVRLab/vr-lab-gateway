@@ -50,12 +50,25 @@ All colors MUST be HSL.
     --vr-purple: 270 91% 65%;
     --vr-pink: 316 73% 69%;
     --vr-blue: 217 91% 60%;
+    --vr-green: 142 71% 45%;
+    --vr-orange: 25 95% 53%;
+    --vr-red: 0 84% 60%;
+
+    /* Category Colors */
+    --vr-color: 246 83% 58%;
+    --ar-color: 142 71% 45%;
+    --xr-color: 292 84% 61%;
+    --web-color: 217 91% 60%;
 
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
     --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-glow)));
     --gradient-cyber: linear-gradient(135deg, hsl(var(--vr-cyan)), hsl(var(--vr-purple)));
     --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    --gradient-vr: linear-gradient(135deg, hsl(var(--vr-color)), hsl(var(--vr-purple)));
+    --gradient-ar: linear-gradient(135deg, hsl(var(--ar-color)), hsl(var(--vr-cyan)));
+    --gradient-xr: linear-gradient(135deg, hsl(var(--xr-color)), hsl(var(--vr-pink)));
+    --gradient-web: linear-gradient(135deg, hsl(var(--web-color)), hsl(var(--vr-blue)));
 
     /* Glass Effects */
     --glass-bg: rgba(255, 255, 255, 0.08);
@@ -161,12 +174,33 @@ All colors MUST be HSL.
     background: var(--gradient-glass);
   }
 
+  .gradient-vr {
+    background: var(--gradient-vr);
+  }
+
+  .gradient-ar {
+    background: var(--gradient-ar);
+  }
+
+  .gradient-xr {
+    background: var(--gradient-xr);
+  }
+
+  .gradient-web {
+    background: var(--gradient-web);
+  }
+
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
 
   .animate-glow {
     animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+    opacity: 0;
   }
 
   .hover-lift {
@@ -176,6 +210,46 @@ All colors MUST be HSL.
   .hover-lift:hover {
     transform: translateY(-8px) scale(1.02);
     box-shadow: 0 20px 40px 0 rgba(31, 38, 135, 0.5);
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Category specific colors */
+  .bg-vr-500\/20 {
+    background-color: hsl(var(--vr-color) / 0.2);
+  }
+
+  .text-vr-300 {
+    color: hsl(var(--vr-color) / 0.8);
+  }
+
+  .bg-ar-500\/20 {
+    background-color: hsl(var(--ar-color) / 0.2);
+  }
+
+  .text-ar-300 {
+    color: hsl(var(--ar-color) / 0.8);
+  }
+
+  .bg-xr-500\/20 {
+    background-color: hsl(var(--xr-color) / 0.2);
+  }
+
+  .text-xr-300 {
+    color: hsl(var(--xr-color) / 0.8);
+  }
+
+  .bg-web-500\/20 {
+    background-color: hsl(var(--web-color) / 0.2);
+  }
+
+  .text-web-300 {
+    color: hsl(var(--web-color) / 0.8);
   }
 }
 
@@ -192,6 +266,17 @@ All colors MUST be HSL.
 @keyframes pulse-slow {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.8; }
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .animate-pulse-slow {

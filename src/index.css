@@ -53,12 +53,18 @@ All colors MUST be HSL.
     --vr-green: 142 71% 45%;
     --vr-orange: 25 95% 53%;
     --vr-red: 0 84% 60%;
+    --vr-yellow: 48 100% 67%;
 
     /* Category Colors */
     --vr-color: 246 83% 58%;
     --ar-color: 142 71% 45%;
     --xr-color: 292 84% 61%;
     --web-color: 217 91% 60%;
+
+    /* Status Colors */
+    --status-active: 142 71% 45%;
+    --status-beta: 48 100% 67%;
+    --status-coming: 217 91% 60%;
 
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
@@ -69,30 +75,27 @@ All colors MUST be HSL.
     --gradient-ar: linear-gradient(135deg, hsl(var(--ar-color)), hsl(var(--vr-cyan)));
     --gradient-xr: linear-gradient(135deg, hsl(var(--xr-color)), hsl(var(--vr-pink)));
     --gradient-web: linear-gradient(135deg, hsl(var(--web-color)), hsl(var(--vr-blue)));
+    --gradient-featured: linear-gradient(135deg, hsl(var(--vr-yellow) / 0.2), hsl(var(--vr-orange) / 0.1));
 
     /* Glass Effects */
     --glass-bg: rgba(255, 255, 255, 0.08);
     --glass-border: rgba(255, 255, 255, 0.12);
     --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    --glass-featured: rgba(255, 255, 255, 0.12);
+    --glass-featured-border: rgba(255, 255, 255, 0.18);
 
     /* Animations */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-spring: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -158,6 +161,13 @@ All colors MUST be HSL.
     box-shadow: var(--glass-shadow);
   }
 
+  .glass-featured {
+    background: var(--glass-featured);
+    backdrop-filter: blur(24px);
+    border: 1px solid var(--glass-featured-border);
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+  }
+
   .gradient-primary {
     background: var(--gradient-primary);
   }
@@ -190,6 +200,10 @@ All colors MUST be HSL.
     background: var(--gradient-web);
   }
 
+  .gradient-featured {
+    background: var(--gradient-featured);
+  }
+
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
@@ -203,6 +217,18 @@ All colors MUST be HSL.
     opacity: 0;
   }
 
+  .animate-scale-in {
+    animation: scaleIn 0.6s ease-out forwards;
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
   .hover-lift {
     transition: var(--transition-smooth);
   }
@@ -210,6 +236,14 @@ All colors MUST be HSL.
   .hover-lift:hover {
     transform: translateY(-8px) scale(1.02);
     box-shadow: 0 20px 40px 0 rgba(31, 38, 135, 0.5);
+  }
+
+  .hover-spring {
+    transition: var(--transition-spring);
+  }
+
+  .hover-spring:hover {
+    transform: scale(1.05);
   }
 
   .line-clamp-3 {
@@ -220,8 +254,8 @@ All colors MUST be HSL.
   }
 
   .desktop-icons-grid {
-    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Adjust column width as needed */
-    gap: 16px; /* Space between icons */
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 16px;
     padding: 16px;
   }
 
@@ -234,12 +268,20 @@ All colors MUST be HSL.
     color: hsl(var(--vr-color) / 0.8);
   }
 
+  .border-vr-500\/30 {
+    border-color: hsl(var(--vr-color) / 0.3);
+  }
+
   .bg-ar-500\/20 {
     background-color: hsl(var(--ar-color) / 0.2);
   }
 
   .text-ar-300 {
     color: hsl(var(--ar-color) / 0.8);
+  }
+
+  .border-ar-500\/30 {
+    border-color: hsl(var(--ar-color) / 0.3);
   }
 
   .bg-xr-500\/20 {
@@ -250,12 +292,83 @@ All colors MUST be HSL.
     color: hsl(var(--xr-color) / 0.8);
   }
 
+  .border-xr-500\/30 {
+    border-color: hsl(var(--xr-color) / 0.3);
+  }
+
   .bg-web-500\/20 {
     background-color: hsl(var(--web-color) / 0.2);
   }
 
   .text-web-300 {
     color: hsl(var(--web-color) / 0.8);
+  }
+
+  .border-web-500\/30 {
+    border-color: hsl(var(--web-color) / 0.3);
+  }
+
+  /* Status colors */
+  .bg-green-500\/20 {
+    background-color: hsl(var(--status-active) / 0.2);
+  }
+
+  .text-green-400 {
+    color: hsl(var(--status-active) / 0.9);
+  }
+
+  .bg-yellow-500\/20 {
+    background-color: hsl(var(--status-beta) / 0.2);
+  }
+
+  .text-yellow-400 {
+    color: hsl(var(--status-beta) / 0.9);
+  }
+
+  .bg-blue-500\/20 {
+    background-color: hsl(var(--status-coming) / 0.2);
+  }
+
+  .text-blue-400 {
+    color: hsl(var(--status-coming) / 0.9);
+  }
+
+  /* Featured project specific styles */
+  .featured-glow {
+    box-shadow: 
+      0 0 20px hsl(var(--vr-yellow) / 0.3),
+      0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  }
+
+  .featured-glow:hover {
+    box-shadow: 
+      0 0 30px hsl(var(--vr-yellow) / 0.4),
+      0 0 60px hsl(var(--vr-yellow) / 0.2),
+      0 12px 40px 0 rgba(31, 38, 135, 0.5);
+  }
+
+  /* Interactive elements */
+  .button-glow {
+    box-shadow: 0 4px 15px hsl(var(--primary) / 0.4);
+    transition: var(--transition-smooth);
+  }
+
+  .button-glow:hover {
+    box-shadow: 0 6px 20px hsl(var(--primary) / 0.6);
+    transform: translateY(-2px);
+  }
+
+  /* QR Code modal styles */
+  .qr-modal-backdrop {
+    backdrop-filter: blur(12px);
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  .qr-modal-content {
+    background: var(--glass-featured);
+    backdrop-filter: blur(24px);
+    border: 1px solid var(--glass-featured-border);
+    box-shadow: 0 20px 60px 0 rgba(31, 38, 135, 0.6);
   }
 }
 
@@ -285,6 +398,64 @@ All colors MUST be HSL.
   }
 }
 
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
 .animate-pulse-slow {
   animation: pulse-slow 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+/* Responsive design improvements */
+@media (max-width: 768px) {
+  .featured-glow {
+    box-shadow: 0 4px 20px hsl(var(--vr-yellow) / 0.2);
+  }
+  
+  .glass-card {
+    backdrop-filter: blur(16px);
+  }
+  
+  .glass-featured {
+    backdrop-filter: blur(20px);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .glass-card {
+    border-width: 2px;
+    border-color: hsl(var(--foreground) / 0.3);
+  }
+  
+  .gradient-primary {
+    background: hsl(var(--primary));
+  }
 }

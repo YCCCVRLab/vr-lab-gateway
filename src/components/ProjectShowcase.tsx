@@ -18,12 +18,14 @@ import {
   Rocket,
   BookOpen
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 interface Project {
   id: string;
   title: string;
   description: string;
   url: string;
+  internalRoute?: string; // New field for internal routes
   type: 'spatial' | 'web' | 'app' | 'game';
   thumbnail?: string;
   tags: string[];
@@ -62,6 +64,7 @@ const vrProjects: Project[] = [
     title: 'The Hawk - VR Training Course',
     description: 'Interactive course website featuring comprehensive VR training modules, video tutorials, quizzes, and hands-on learning experiences. Your gateway to mastering virtual reality technology.',
     url: 'https://ycccvrlab.github.io/vr-training-course',
+    internalRoute: '/vr-training-course', // Internal route for detailed page
     type: 'web',
     platform: 'GitHub Pages',
     category: 'Web',
@@ -113,6 +116,8 @@ const FeaturedProjectCard: React.FC<{
   onShowQR: (project: Project) => void;
   delay: number;
 }> = ({ project, onShowQR, delay }) => {
+  const navigate = useNavigate();
+  
   const getIcon = () => {
     switch (project.type) {
       case 'spatial': return Globe;
@@ -124,6 +129,14 @@ const FeaturedProjectCard: React.FC<{
   };
 
   const Icon = getIcon();
+
+  const handleLaunch = () => {
+    if (project.internalRoute) {
+      navigate(project.internalRoute);
+    } else {
+      window.open(project.url, '_blank', 'noopener,noreferrer');
+    }
+  };
 
   return (
     <div 
@@ -205,16 +218,14 @@ const FeaturedProjectCard: React.FC<{
 
       {/* Actions */}
       <div className="flex items-center gap-4 relative z-10">
-        <a
-          href={project.url}
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
+          onClick={handleLaunch}
           className="flex-1 gradient-primary px-6 py-3 rounded-xl font-semibold text-white hover:scale-105 transition-transform flex items-center justify-center gap-2 shadow-lg"
         >
           <Rocket className="w-5 h-5" />
-          <span>Launch</span>
+          <span>{project.internalRoute ? 'Explore' : 'Launch'}</span>
           <ChevronRight className="w-4 h-4" />
-        </a>
+        </button>
         
         <button
           onClick={() => onShowQR(project)}
@@ -244,6 +255,8 @@ const ProjectCard: React.FC<{
   onShowQR: (project: Project) => void;
   delay: number;
 }> = ({ project, onShowQR, delay }) => {
+  const navigate = useNavigate();
+  
   const getIcon = () => {
     switch (project.type) {
       case 'spatial': return Globe;
@@ -255,6 +268,14 @@ const ProjectCard: React.FC<{
   };
 
   const Icon = getIcon();
+
+  const handleLaunch = () => {
+    if (project.internalRoute) {
+      navigate(project.internalRoute);
+    } else {
+      window.open(project.url, '_blank', 'noopener,noreferrer');
+    }
+  };
 
   return (
     <div 
@@ -332,15 +353,13 @@ const ProjectCard: React.FC<{
 
       {/* Actions */}
       <div className="flex items-center gap-3">
-        <a
-          href={project.url}
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
+          onClick={handleLaunch}
           className="flex-1 gradient-primary px-4 py-2 rounded-lg font-semibold text-white hover:scale-105 transition-transform flex items-center justify-center gap-2"
         >
-          <span>Launch</span>
+          <span>{project.internalRoute ? 'Explore' : 'Launch'}</span>
           <ChevronRight className="w-4 h-4" />
-        </a>
+        </button>
         
         <button
           onClick={() => navigator.share?.({ 

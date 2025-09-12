@@ -76,9 +76,9 @@ export const RetroDesktop: React.FC<RetroDesktopProps> = ({ theme }) => {
         )}
       </div>
 
-      {/* Desktop Icons - Fixed positioning and overflow */}
-      <div className="absolute top-4 left-4 bottom-16 w-20 overflow-y-auto custom-scrollbar">
-        <div className="grid grid-cols-1 gap-1">
+      {/* Desktop Icons - Flexible grid and overflow */}
+      <div className="absolute top-4 left-4 bottom-16 right-4 overflow-y-auto custom-scrollbar">
+        <div className="grid desktop-icons-grid gap-4">
           {desktopIcons.map((icon, index) => (
             <DesktopIcon key={index} {...icon} />
           ))}

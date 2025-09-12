@@ -219,6 +219,12 @@ All colors MUST be HSL.
     overflow: hidden;
   }
 
+  .desktop-icons-grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Adjust column width as needed */
+    gap: 16px; /* Space between icons */
+    padding: 16px;
+  }
+
   /* Category specific colors */
   .bg-vr-500\/20 {
     background-color: hsl(var(--vr-color) / 0.2);
